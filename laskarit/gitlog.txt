@@ -1,0 +1,90 @@
+ktommi@melkinpaasi:~/otm_viikko1$ git log --stat | cat
+commit 8a6c125999e03e03c412c135df2b920c3f116596
+Author: kotommi <tommi.koivula@helsinki.fi>
+Date:   Tue Mar 13 15:50:56 2018 +0200
+
+    vika?
+
+ tiedostoja/file1  | 0
+ tiedostoja/file2  | 0
+ tiedostoja/file22 | 0
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 433962b2b2cb15c6c813cd1f7b9b87a420d1da24
+Author: kotommi <tommi.koivula@helsinki.fi>
+Date:   Tue Mar 13 15:31:20 2018 +0200
+
+    filuja
+
+ tiedostoja/file1 | 0
+ tiedostoja/file2 | 0
+ tiedostoja/file3 | 0
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+
+commit d3e9cbf208f2262963cadfacf8b691b20c087c90
+Author: kotommi <tommi.koivula@helsinki.fi>
+Date:   Tue Mar 13 15:14:55 2018 +0200
+
+    -p
+
+ eka.txt    | 5 ++++-
+ kolmas.txt | 1 +
+ 2 files changed, 5 insertions(+), 1 deletion(-)
+
+commit 879de7c213a4039127feb43ef01c2e138503d254
+Author: kotommi <tommi.koivula@helsinki.fi>
+Date:   Tue Mar 13 15:13:07 2018 +0200
+
+    renamed tiedosto to eka
+
+ eka.txt      | 1 +
+ tiedosto.txt | 1 -
+ 2 files changed, 1 insertion(+), 1 deletion(-)
+
+commit 5b054613e327e90131200d2c17e80bc3da24a9bd
+Author: kotommi <tommi.koivula@helsinki.fi>
+Date:   Tue Mar 13 15:12:19 2018 +0200
+
+    poista toinen.txt
+
+ toinen.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 1fdddb8c48fe25c67be1acc50deeec859f3538e3
+Author: kotommi <tommi.koivula@helsinki.fi>
+Date:   Tue Mar 13 15:10:33 2018 +0200
+
+    kansion lisäys
+
+ stuff/jokin.tiedosto | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 3e8bbfd20f8e2c28101656b1972eb9ebf8a2d0f2
+Author: kotommi <tommi.koivula@helsinki.fi>
+Date:   Tue Mar 13 15:10:00 2018 +0200
+
+    kolmas
+
+ kolmas.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit a609733f0dbedfdaeb0ec6eb128f89662d215cee
+Author: kotommi <tommi.koivula@helsinki.fi>
+Date:   Tue Mar 13 15:06:09 2018 +0200
+
+    muutos ja lisäys
+
+ tiedosto.txt | 1 +
+ toinen.txt   | 0
+ 2 files changed, 1 insertion(+)
+
+commit c4779939e82c849ee69bfccad080920c375eecb1
+Author: kotommi <tommi.koivula@helsinki.fi>
+Date:   Tue Mar 13 15:04:38 2018 +0200
+
+    tiedosto luotu
+
+ tiedosto.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ktommi@melkinpaasi:~/otm_viikko1$ 
+
