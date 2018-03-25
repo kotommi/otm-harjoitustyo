@@ -1,7 +1,5 @@
-# Hei internet
-Tämä on *repo* **otm**-harjoitustyölle. Ja tämä on lisäys *mergeä* varten
+# Laskinprojekti
 
-## Tehtävät
-[git log](https://github.com/kotommi/otm-harjoitustyo/blob/master/laskarit/gitlog.txt)
-
-[komentorivi](https://github.com/kotommi/otm-harjoitustyo/blob/master/laskarit/komentorivi.txt)
+## Linkkejä
+[Tuntikirjanpito](https://github.com/kotommi/otm-harjoitustyo/blob/master/dokumentaatio/tuntikirjanpito.md)
+[Vaatimusmäärittely](https://github.com/kotommi/otm-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)
