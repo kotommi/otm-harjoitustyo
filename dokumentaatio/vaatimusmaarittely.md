@@ -5,12 +5,16 @@ sisältää kaikki perustaskulaskimelta odotettavat ominaisuudet. Myöhemmin sov
 
 ## Käyttöliittymäluonnos
 ![kuva](http://tomko.kapsi.fi/img/uicrop.png)
+Lisäksi joku yläpalkki josta voi vaihtaa näkymiä
 
 ## Perusversion tarjoama toiminnallisuus
 * Käyttäjä voi kirjoittaa lausekkeita jotka ohjelma evaluoi
 * Tuettuna operaattorit + - / * % √ xⁿ () {} []
 * Ohjelma tallentaa edellisten laskujen tuloksia historiaan (scrollback) ja 
 näyttää ne kun ohjelma käynnistetään uudestaan.
+
+## Toimintaympäristön rajoitteet
+* Ohjelman tulee toimia Linux-pohjaisissa käyttöjärjestelmissä
 
 ## Jatkokehitysideoita
 * Todennäköisyyslaskenta, jakaumien visualisointi
