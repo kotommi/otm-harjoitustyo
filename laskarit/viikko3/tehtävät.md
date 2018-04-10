@@ -7,24 +7,8 @@ http://yuml.me/e5cf91cb.png
 http://yuml.me/af04f740.png
 
 ## Tehtävä 3
-title Machine creation and drive Sequence
-
-Main->Machine: new Machine()
-Machine->FuelTank: new FuelTank()
-FuelTank-->Machine: FuelTank
-Machine->FuelTank: fill(40)
-Machine->Engine: new Engine(tank)
-Engine-->Machine: Engine
-Machine-->Main: Machine
-Main->Machine: drive()
-Machine->Engine: start()
-Engine->FuelTank: consume(5)
-Machine->Engine: isRunning()
-Engine->FuelTank: contentsLeft()
-FuelTank-->Engine: 35
-Engine-->Machine: true
-Machine->Engine: useEnergy()
-Engine->FuelTank: consume(10)
+[kuva](https://www.websequencediagrams.com/cgi-bin/cdraw?lz=dGl0bGUgTWFjaGluZSBjcmVhdGlvbiBhbmQgZHJpdmUgU2VxdWVuY2UKCk1haW4tPgAkBzogbmV3ADAIKCkKADsHLS0-TWFpbjogbQBMBgAPCT5GdWVsVGFuawAzBgAGCCgpCgARCAA2BQBVB3RhbmsAJxRmaWxsKDQwAGUKPkVuZwCBBQkABgYodGFuaykKABMGAEkMZQAmBQCBDxsAgVINAIF5BQCBTgsAYQlzdGFydCgAWAkAgU4LY29uc3VtZSg1AIENE2lzUnVubmluZwAwCgCBZAxydWUAOxZ0ZW50c0xlZnQAghwOAIFvCDM1ADYYAIIREXVzZUVuZXJneQCBHx0xMCkK&s=default)
+[sivu](https://www.websequencediagrams.com/?lz=dGl0bGUgTWFjaGluZSBjcmVhdGlvbiBhbmQgZHJpdmUgU2VxdWVuY2UKCk1haW4tPgAkBzogbmV3ADAIKCkKADsHLS0-TWFpbjogbQBMBgAPCT5GdWVsVGFuawAzBgAGCCgpCgARCAA2BQBVB3RhbmsAJxRmaWxsKDQwAGUKPkVuZwCBBQkABgYodGFuaykKABMGAEkMZQAmBQCBDxsAgVINAIF5BQCBTgsAYQlzdGFydCgAWAkAgU4LY29uc3VtZSg1AIENE2lzUnVubmluZwAwCgCBZAxydWUAOxZ0ZW50c0xlZnQAghwOAIFvCDM1ADYYAIIREXVzZUVuZXJneQCBHx0xMCkK&s=default)
 
 ## Tehtävä 4
 [kuva](https://www.websequencediagrams.com/cgi-bin/cdraw?lz=dGl0bGUgTWFjaGluZSBjcmVhdGlvbiBhbmQgZHJpdmUgU2VxdWVuY2UKTWFpbi0-SEtMTGFpdGVoYWxsaW50bzogbmV3IAAGECgpCgAZEC0tPk1haW46IGwAMwwATwdMYXRhYWphABYFAEwGAAYMKCkKABUMAEEJcmF1dGF0aWV0b3JpAEEIdWtpADoOAAcKKCkKABQLADsLdGlra2E2IAAJOmJ1c3NpMjQ0AIILGWxpc2FhAIFeBygAgS8IbnRvcmkpABUfAIFLBSgAgRwIAAgmAIEHCABUCEtpb3NraQCDJAYABgYoKQoADwYAgwwKaXBwdUx1dWtrdQAnD29zdGFNYXRrYWtvcnR0aSgiQXJ0byIAOAk-ABELAIQHBgAZFAA2Cy0AgQcKYXJ0b24AUQYAgQAQAA8MAIQQFGxhdGFhQXJ2b2EoADsLLCAzAIQdDwCBEQ5rYXN2YXQAMQczAIJ0CACEKA1vc3RhTGlwcHUASg4wAIQvDgCBaA5nZXRBcnZvKACBWBAAhQENMwAmG3ZhaGVubgCBSQcxLjUAhRQWdHJ1AIZ_CACBDyQyAIEBMgCGMg4xLjUAgWUQaW46IGZhbHNl&s=default)
