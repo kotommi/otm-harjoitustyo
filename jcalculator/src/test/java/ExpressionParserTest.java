@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 
+import com.fathzer.soft.javaluator.DoubleEvaluator;
 import jcalculator.util.ExpressionParser;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -17,35 +18,41 @@ import static org.junit.Assert.*;
  * @author tomko
  */
 public class ExpressionParserTest {
-    
+
+    DoubleEvaluator de;
+
     public ExpressionParserTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
+        de = new DoubleEvaluator();
     }
-    
+
     @After
     public void tearDown() {
     }
-    
+
     @Test
     public void emptyStringWorks() {
-        assertTrue(ExpressionParser.checkParenthesis(""));
+        try {
+            assertTrue(de.evaluate("") == 0);
+        } catch (IllegalArgumentException e) {
+            assertTrue(true);
+        }
     }
-    
+
     @Test
-    public void complicatedExpressionWorks() {
-        assertTrue(ExpressionParser.checkParenthesis("(x + 1)(-[y^2]{})"));
-        assertTrue(ExpressionParser.checkParenthesis("(setf (fdefinition 'f) #'(lambda (a) (block f b...)))"));
-        assertFalse(ExpressionParser.checkParenthesis("()()({{{}{}{}}}[][][][]"));
+    public void simpleExpressions() {
+        assertTrue(2 == de.evaluate("1+1"));
+        assertTrue(de.evaluate("2^0") == 1);
     }
 }
