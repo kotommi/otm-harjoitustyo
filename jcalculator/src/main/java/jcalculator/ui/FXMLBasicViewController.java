@@ -12,6 +12,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
 
 /**
  * FXML Controller class
@@ -43,6 +44,21 @@ public class FXMLBasicViewController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        evaluate();
+    }
+
+    public void evaluate() {
+        inputField.setOnKeyPressed(event -> {
+            if (event.getCode() == KeyCode.ENTER) {
+                try {
+                    double d = de.evaluate(inputField.getText());
+                    resultArea.appendText(inputField.getText() + "\t" + Double.toString(d));
+                    inputField.clear();
+                } catch (IllegalArgumentException e) {
+                    inputField.setText("Malformed expression");
+                }
+            }
+        });
     }
 
 }

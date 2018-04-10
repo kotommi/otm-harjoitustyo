@@ -25,7 +25,12 @@ public class Mainview extends Application {
     @Override
     public void init() throws Exception {
         eval = new DoubleEvaluator();
-        FXMLLoader basicViewLoader = new FXMLLoader(getClass().getResource("/FXMLBasicView.fxml"));
+        FXMLLoader basicViewLoader = new FXMLLoader();
+        System.out.println("------");
+        System.out.println(this.getClass().getResource("Mainview.class"));
+        System.out.println(this.getClass().getResource("/basic.fxml"));
+        basicViewLoader.setLocation(this.getClass().getResource("/basic.fxml"));
+        System.out.println(basicViewLoader.getLocation());
         Parent basic = basicViewLoader.load();
         FXMLBasicViewController bvc = basicViewLoader.getController();
         bvc.setApp(this);
