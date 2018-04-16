@@ -52,7 +52,7 @@ public class FXMLBasicViewController implements Initializable {
             if (event.getCode() == KeyCode.ENTER) {
                 try {
                     double d = de.evaluate(inputField.getText());
-                    resultArea.appendText(inputField.getText() + "\t" + Double.toString(d));
+                    resultArea.appendText("\n" + inputField.getText() + "\t" + Double.toString(d));
                     inputField.clear();
                 } catch (IllegalArgumentException e) {
                     inputField.setText("Malformed expression");

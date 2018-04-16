@@ -16,23 +16,28 @@ public class ExpressionParser {
     public static boolean checkParenthesis(String expression) {
         Stack<Character> stack = new Stack();
         for (char c : expression.toCharArray()) {
-            if (c == '(' || c == '{' || c == '[') {
-                stack.add(c);
-            } else if (c == ')') {
-                if (stack.pop() != '(') {
-                    return false;
-                }
-            } else if (c == '}') {
-                if (stack.pop() != '{') {
-                    return false;
-                }
-            } else if (c == ']') {
-                if (stack.pop() != '[') {
-                    return false;
-                }
+            switch (c) {
+                case '(':
+                case '{':
+                case '[':
+                    stack.add(c);
+                    break;
+                case ')':
+                    if (stack.pop() != '(') {
+                        return false;
+                    }   break;
+                case '}':
+                    if (stack.pop() != '{') {
+                        return false;
+                    }   break;
+                case ']':
+                    if (stack.pop() != '[') {
+                        return false;
+                    }   break;
+                default:
+                    break;
             }
         }
-        System.out.println(stack);
         return stack.isEmpty();
     }
 }
