@@ -6,49 +6,68 @@
 package jcalculator.ui;
 
 import com.fathzer.soft.javaluator.DoubleEvaluator;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import jcalculator.database.Database;
+import jcalculator.database.ScrollbackDao;
 
 /**
  *
  * @author tomko
  */
 public class Mainview extends Application {
-
-    DoubleEvaluator eval;
+    
+    private DoubleEvaluator eval;
     private Stage stage;
     private Scene basicview;
-
+    private ScrollbackDao sbdao;
+    private FXMLBasicViewController bvc;
+    
     @Override
     public void init() throws Exception {
         eval = new DoubleEvaluator();
-        FXMLLoader basicViewLoader = new FXMLLoader();
-        System.out.println("------");
-        System.out.println(this.getClass().getResource("Mainview.class"));
-        System.out.println(this.getClass().getResource("/basic.fxml"));
-        basicViewLoader.setLocation(this.getClass().getResource("/basic.fxml"));
-        System.out.println(basicViewLoader.getLocation());
-        Parent basic = basicViewLoader.load();
-        FXMLBasicViewController bvc = basicViewLoader.getController();
-        bvc.setApp(this);
-        bvc.setDoubleEvaluator(eval);
-        basicview = new Scene(basic);
+        sbdao = new ScrollbackDao();
+        createBasicScene();
     }
-
+    
     @Override
     public void start(Stage stage) throws Exception {
         this.stage = stage;
-
+        setBasicScene(stage);
+    }
+    
+    public void createBasicScene() {
+        FXMLLoader basicViewLoader = new FXMLLoader();
+        basicViewLoader.setLocation(this.getClass().getResource("/basic.fxml"));
+        Parent basic = null;
+        try {
+            basic = basicViewLoader.load();
+        } catch (IOException ex) {
+            Logger.getLogger(Mainview.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        bvc = basicViewLoader.getController();
+        bvc.setApp(this);
+        bvc.setDoubleEvaluator(eval);
+        bvc.setScrollbackDao(sbdao);
+        basicview = new Scene(basic);
+    }
+    
+    public void setBasicScene(Stage stage) {
         stage.setTitle("jcalculator");
         stage.setScene(basicview);
+        stage.setOnShowing(e -> bvc.setScrollback());
+        stage.setOnHidden(e -> bvc.shutdown());
         stage.show();
     }
-
+    
     public static void main(String[] args) {
         launch(Mainview.class);
     }
-
+    
 }
