@@ -17,10 +17,9 @@ public class DoubleUtil {
         if (d % 1 == 0) {
             return Integer.toString((int) d);
         }
-        DecimalFormat df = new DecimalFormat("#.#######");
+        //add into a config
+        DecimalFormat df = new DecimalFormat("#.######");
         return df.format(d);
-
-        //return Double.toString(d);
     }
 
 }

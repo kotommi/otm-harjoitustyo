@@ -31,7 +31,7 @@ public class FXMLBasicViewController implements Initializable {
     private DoubleEvaluator de;
     private Mainview app;
     private ScrollbackDao sbdao;
-    private int ans = 0;
+    private double ans = 0;
 
     @FXML
     private TextArea resultArea;
@@ -61,7 +61,7 @@ public class FXMLBasicViewController implements Initializable {
     @FXML
     private Button button9;
     @FXML
-    private Button buttonComma;
+    private Button buttonDot;
     @FXML
     private Button buttonPercent;
     @FXML
@@ -72,6 +72,10 @@ public class FXMLBasicViewController implements Initializable {
     private Button buttonPlus;
     @FXML
     private Button buttonMinus;
+    @FXML
+    private Button buttonAns;
+    @FXML
+    private Button buttonPower;
 
     public void setDoubleEvaluator(DoubleEvaluator de) {
         this.de = de;
@@ -126,6 +130,25 @@ public class FXMLBasicViewController implements Initializable {
         button9.setOnAction(event -> {
             insertCharacter("9");
         });
+        buttonAns.setOnAction(event -> {
+            insertCharacter(DoubleUtil.toString(ans));
+        });
+        buttonDivide.setOnAction(event -> {
+            insertCharacter("/");
+        });
+        buttonMultiply.setOnAction(event -> {
+            insertCharacter("*");
+        });
+        buttonPlus.setOnAction(event -> {
+            insertCharacter("+");
+        });
+        buttonMinus.setOnAction(event -> {
+            insertCharacter("-");
+        });
+        buttonPower.setOnAction(event -> {
+            insertCharacter("^");
+        });
+
     }
 
     public void insertCharacter(String c) {
@@ -150,6 +173,7 @@ public class FXMLBasicViewController implements Initializable {
             try {
                 double d = de.evaluate(inputField.getText());
                 String ds = DoubleUtil.toString(d);
+                ans = Double.parseDouble(ds);
                 //TODO right justify the answer
                 resultArea.appendText("\n" + inputField.getText() + "\t = " + ds);
                 inputField.clear();

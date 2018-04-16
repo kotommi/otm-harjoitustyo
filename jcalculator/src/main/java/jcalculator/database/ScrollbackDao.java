@@ -62,6 +62,10 @@ public class ScrollbackDao {
 
             PreparedStatement delete = conn.prepareStatement("DELETE FROM Scrollback");
             executeUpdateStatement(delete);
+            //put this in a config
+            if (lines.size() > 10) {
+                lines = lines.subList(lines.size() - 10, lines.size());
+            }
             for (String line : lines) {
                 PreparedStatement ps = conn.prepareStatement("INSERT INTO Scrollback (line) VALUES (?)");
                 ps.setString(1, line);
