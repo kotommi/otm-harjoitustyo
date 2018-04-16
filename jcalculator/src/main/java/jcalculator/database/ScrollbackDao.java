@@ -15,6 +15,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
+ * DatabaseAccessObject class for saving and loading scrollback history.
  *
  * @author tomko
  */
@@ -23,6 +24,10 @@ public class ScrollbackDao {
     private Database db;
     private Connection conn;
 
+    /**
+     * Default constructor that initializes a database connection object and
+     * creates the necessary table.
+     */
     public ScrollbackDao() {
         this.db = new Database();
         try {
@@ -32,6 +37,12 @@ public class ScrollbackDao {
         }
     }
 
+    /**
+     * Fetches scrollback from a database and converts it into a string tailored
+     * for TextArea.
+     *
+     * @return a string with lines separated with \n
+     */
     public String getScrollback() {
         conn = db.getConnection();
         StringBuilder lines = new StringBuilder();
@@ -52,7 +63,7 @@ public class ScrollbackDao {
     }
 
     /**
-     * Clears the scrollback and saves with lines
+     * Clears the scrollback and saves last x lines in the database.
      *
      * @param lines List of lines from resultArea
      */
@@ -79,9 +90,9 @@ public class ScrollbackDao {
     }
 
     /**
-     * Executes an update statement with logging
+     * Executes an update statement with logging.
      *
-     * @param ps
+     * @param ps PreparedStatement to execute
      */
     public void executeUpdateStatement(PreparedStatement ps) {
         try {
@@ -92,7 +103,12 @@ public class ScrollbackDao {
         }
     }
 
-    public void logError(SQLException ex) {
+    /**
+     * Handles exceptions with Logger.
+     *
+     * @param ex a SQLException thrown by another method
+     */
+    private void logError(SQLException ex) {
         Logger.getLogger(ScrollbackDao.class.getName()).log(Level.SEVERE, null, ex);
     }
 

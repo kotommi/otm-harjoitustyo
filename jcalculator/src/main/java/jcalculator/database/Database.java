@@ -10,11 +10,18 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 /**
+ * Class for generating a database connection.
  *
  * @author tomko
  */
 public class Database {
 
+    /**
+     * creates a connection to a database with DriverManager.
+     *
+     * @return returns a connection to the database or null if there was an
+     * error
+     */
     public Connection getConnection() {
         //fetch this from config
         String dbString = "scrollback.db";
