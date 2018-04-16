@@ -12,25 +12,27 @@
     <stylesheets>
         <URL value="@fxmlbasicview.css" />
     </stylesheets>
-   <children>
-      <TextArea fx:id="resultArea" editable="false" layoutX="13.0" layoutY="58.0" prefHeight="139.0" prefWidth="575.0" text="resultarea" />
-      <TextField fx:id="inputField" layoutX="13.0" layoutY="218.0" prefHeight="37.0" prefWidth="575.0" text="1+1" />
-      <MenuButton fx:id="viewButton" layoutX="14.0" layoutY="20.0" mnemonicParsing="false" text="Basic">
-        <items>
-          <MenuItem fx:id="programmingView" mnemonicParsing="false" text="Programming" />
-        </items>
-      </MenuButton>
-      <Button layoutX="66.0" layoutY="270.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="41.0" text="8" />
-      <Button fx:id="seven" layoutX="19.0" layoutY="270.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="41.0" text="7" />
-      <Button layoutX="113.0" layoutY="270.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="41.0" text="9" />
-      <Button layoutX="19.0" layoutY="314.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="41.0" text="4" />
-      <Button layoutX="66.0" layoutY="314.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="41.0" text="5" />
-      <Button layoutX="113.0" layoutY="314.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="41.0" text="6" />
-      <Button layoutX="19.0" layoutY="359.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="41.0" text="1" />
-      <Button layoutX="66.0" layoutY="359.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="41.0" text="2" />
-      <Button layoutX="113.0" layoutY="359.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="41.0" text="3" />
-      <Button layoutX="19.0" layoutY="406.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="41.0" text="0" />
-      <Button layoutX="66.0" layoutY="406.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="41.0" text="," />
-      <Button layoutX="113.0" layoutY="406.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="41.0" text="\%" />
-   </children>
+    <children>
+        <TextArea fx:id="resultArea" editable="false" layoutX="13.0" layoutY="58.0" prefHeight="139.0" prefWidth="575.0" text="resultarea" />
+        <TextField fx:id="inputField" layoutX="13.0" layoutY="218.0" prefHeight="37.0" prefWidth="575.0" text="1+1" />
+        <MenuButton fx:id="viewButton" layoutX="14.0" layoutY="20.0" mnemonicParsing="false" text="Basic">
+            <items>
+                <MenuItem fx:id="programmingView" mnemonicParsing="false" text="Programming" />
+            </items>
+        </MenuButton>
+        <Button fx:id="button8" layoutX="66.0" layoutY="270.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="41.0" text="8" />
+        <Button fx:id="button7" layoutX="19.0" layoutY="270.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="41.0" text="7" />
+        <Button fx:id="button9" layoutX="113.0" layoutY="270.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="41.0" text="9" />
+        <Button fx:id="button4" layoutX="19.0" layoutY="314.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="41.0" text="4" />
+        <Button fx:id="button5" layoutX="66.0" layoutY="314.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="41.0" text="5" />
+        <Button fx:id="button6" layoutX="113.0" layoutY="314.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="41.0" text="6" />
+        <Button fx:id="button1" layoutX="19.0" layoutY="359.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="41.0" text="1" />
+        <Button fx:id="button2" layoutX="66.0" layoutY="359.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="41.0" text="2" />
+        <Button fx:id="button3" layoutX="113.0" layoutY="359.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="41.0" text="3" />
+        <Button fx:id="button0" layoutX="19.0" layoutY="406.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="41.0" text="0" />
+        <Button fx:id="buttonComma" layoutX="66.0" layoutY="406.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="41.0" text="," />
+        <Button fx:id="buttonPercent" layoutX="113.0" layoutY="406.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="41.0" text="\%" />
+      <Button fx:id="buttonPlus" layoutX="162.0" layoutY="406.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="41.0" text="+" />
+      <Button fx:id="buttonEvaluate" layoutX="213.0" layoutY="406.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="71.0" text="=" />
+    </children>
 </AnchorPane>

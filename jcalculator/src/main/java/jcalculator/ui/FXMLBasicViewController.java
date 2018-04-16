@@ -14,10 +14,12 @@ import java.util.ResourceBundle;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import jcalculator.database.ScrollbackDao;
+import jcalculator.util.DoubleUtil;
 
 /**
  * FXML Controller class
@@ -29,12 +31,47 @@ public class FXMLBasicViewController implements Initializable {
     private DoubleEvaluator de;
     private Mainview app;
     private ScrollbackDao sbdao;
+    private int ans = 0;
 
     @FXML
     private TextArea resultArea;
-
     @FXML
     private TextField inputField;
+
+    @FXML
+    private Button buttonEvaluate;
+    @FXML
+    private Button button0;
+    @FXML
+    private Button button1;
+    @FXML
+    private Button button2;
+    @FXML
+    private Button button3;
+    @FXML
+    private Button button4;
+    @FXML
+    private Button button5;
+    @FXML
+    private Button button6;
+    @FXML
+    private Button button7;
+    @FXML
+    private Button button8;
+    @FXML
+    private Button button9;
+    @FXML
+    private Button buttonComma;
+    @FXML
+    private Button buttonPercent;
+    @FXML
+    private Button buttonDivide;
+    @FXML
+    private Button buttonMultiply;
+    @FXML
+    private Button buttonPlus;
+    @FXML
+    private Button buttonMinus;
 
     public void setDoubleEvaluator(DoubleEvaluator de) {
         this.de = de;
@@ -54,7 +91,45 @@ public class FXMLBasicViewController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        appends();
         evaluate();
+    }
+
+    public void appends() {
+        button0.setOnAction(event -> {
+            insertCharacter("0");
+        });
+        button1.setOnAction(event -> {
+            insertCharacter("1");
+        });
+        button2.setOnAction(event -> {
+            insertCharacter("2");
+        });
+        button3.setOnAction(event -> {
+            insertCharacter("3");
+        });
+        button4.setOnAction(event -> {
+            insertCharacter("4");
+        });
+        button5.setOnAction(event -> {
+            insertCharacter("5");
+        });
+        button6.setOnAction(event -> {
+            insertCharacter("6");
+        });
+        button7.setOnAction(event -> {
+            insertCharacter("7");
+        });
+        button8.setOnAction(event -> {
+            insertCharacter("8");
+        });
+        button9.setOnAction(event -> {
+            insertCharacter("9");
+        });
+    }
+
+    public void insertCharacter(String c) {
+        inputField.appendText(c);
     }
 
     public void shutdown() {
@@ -71,17 +146,24 @@ public class FXMLBasicViewController implements Initializable {
     }
 
     public void evaluate() {
-        inputField.setOnKeyPressed(event -> {
-            if (event.getCode() == KeyCode.ENTER) {
-                try {
-                    double d = de.evaluate(inputField.getText());
-                    resultArea.appendText("\n" + inputField.getText() + "\t" + Double.toString(d));
-                    inputField.clear();
-                } catch (IllegalArgumentException e) {
-                    inputField.setText("Malformed expression");
-                }
+        buttonEvaluate.setOnAction(event -> {
+            try {
+                double d = de.evaluate(inputField.getText());
+                String ds = DoubleUtil.toString(d);
+                //TODO right justify the answer
+                resultArea.appendText("\n" + inputField.getText() + "\t = " + ds);
+                inputField.clear();
+            } catch (IllegalArgumentException e) {
+                inputField.setText("Malformed expression");
             }
         });
+
+        inputField.setOnKeyPressed(event -> {
+            if (event.getCode() == KeyCode.ENTER) {
+                buttonEvaluate.fire();
+            }
+        });
+
     }
 
 }
