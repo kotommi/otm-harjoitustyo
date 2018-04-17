@@ -16,6 +16,17 @@ import java.sql.SQLException;
  */
 public class Database {
 
+    private final String dbName;
+
+    /**
+     * Default constructor that stores the dbName
+     *
+     * @param dbName
+     */
+    public Database(String dbName) {
+        this.dbName = dbName;
+    }
+
     /**
      * creates a connection to a database with DriverManager.
      *
@@ -23,10 +34,8 @@ public class Database {
      * error
      */
     public Connection getConnection() {
-        //fetch this from config
-        String dbString = "scrollback.db";
         try {
-            return DriverManager.getConnection("jdbc:sqlite:" + dbString);
+            return DriverManager.getConnection("jdbc:sqlite:" + dbName);
         } catch (SQLException e) {
             return null;
         }

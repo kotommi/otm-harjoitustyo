@@ -27,9 +27,11 @@ public class ScrollbackDao {
     /**
      * Default constructor that initializes a database connection object and
      * creates the necessary table.
+     *
+     * @param db a Database object
      */
-    public ScrollbackDao() {
-        this.db = new Database();
+    public ScrollbackDao(Database db) {
+        this.db = db;
         try {
             this.db.getConnection().prepareStatement("CREATE TABLE IF NOT EXISTS Scrollback (id integer, line varchar(999))").execute();
         } catch (SQLException ex) {
@@ -93,14 +95,17 @@ public class ScrollbackDao {
      * Executes an update statement with logging.
      *
      * @param ps PreparedStatement to execute
+     * @return true if update was successful and of correct type.
      */
-    public void executeUpdateStatement(PreparedStatement ps) {
+    public boolean executeUpdateStatement(PreparedStatement ps) {
         try {
-            ps.execute();
+            boolean ret = ps.execute();
             ps.close();
+            return !ret;
         } catch (SQLException ex) {
             logError(ex);
         }
+        return false;
     }
 
     /**

@@ -6,7 +6,9 @@
 package jcalculator.ui;
 
 import com.fathzer.soft.javaluator.DoubleEvaluator;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.application.Application;
@@ -22,26 +24,30 @@ import jcalculator.database.ScrollbackDao;
  * @author tomko
  */
 public class Mainview extends Application {
-    
+
     private DoubleEvaluator eval;
     private Stage stage;
     private Scene basicview;
     private ScrollbackDao sbdao;
     private FXMLBasicViewController bvc;
-    
+
     @Override
     public void init() throws Exception {
         eval = new DoubleEvaluator();
-        sbdao = new ScrollbackDao();
+        Properties properties = new Properties();
+        properties.load(new FileInputStream("config.properties"));
+
+        String dbName = properties.getProperty("dbFile");
+        sbdao = new ScrollbackDao(new Database(dbName));
         createBasicScene();
     }
-    
+
     @Override
     public void start(Stage stage) throws Exception {
         this.stage = stage;
         setBasicScene(stage);
     }
-    
+
     public void createBasicScene() {
         FXMLLoader basicViewLoader = new FXMLLoader();
         basicViewLoader.setLocation(this.getClass().getResource("/basic.fxml"));
@@ -57,7 +63,7 @@ public class Mainview extends Application {
         bvc.setScrollbackDao(sbdao);
         basicview = new Scene(basic);
     }
-    
+
     public void setBasicScene(Stage stage) {
         stage.setTitle("jcalculator");
         stage.setScene(basicview);
@@ -65,9 +71,9 @@ public class Mainview extends Application {
         stage.setOnHidden(e -> bvc.shutdown());
         stage.show();
     }
-    
+
     public static void main(String[] args) {
         launch(Mainview.class);
     }
-    
+
 }
