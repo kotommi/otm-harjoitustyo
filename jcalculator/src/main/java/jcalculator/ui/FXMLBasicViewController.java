@@ -6,15 +6,18 @@
 package jcalculator.ui;
 
 import com.fathzer.soft.javaluator.DoubleEvaluator;
+
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
+
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
@@ -37,6 +40,12 @@ public class FXMLBasicViewController implements Initializable {
     private TextArea resultArea;
     @FXML
     private TextField inputField;
+
+    @FXML
+    private MenuItem basicItem;
+
+    @FXML
+    private MenuItem programmingItem;
 
     @FXML
     private Button buttonEvaluate;
@@ -97,6 +106,13 @@ public class FXMLBasicViewController implements Initializable {
         // TODO
         appends();
         evaluate();
+        //changeView();
+    }
+
+    public void changeView() {
+        programmingItem.setOnAction(event -> {
+            app.setProgrammingScene();
+        });
     }
 
     public void appends() {

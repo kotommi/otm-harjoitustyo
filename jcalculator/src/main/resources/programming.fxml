@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="189.0" prefWidth="273.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.141" fx:controller="jcalculator.ui.FXMLProgrammingController">
+    <stylesheets>
+        <URL value="@/styles/programming.css" />
+    </stylesheets>
+   <children>
+      <MenuButton fx:id="viewButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="Programming">
+        <items>
+          <MenuItem fx:id="programmingItem" mnemonicParsing="false" text="Programming" />
+          <MenuItem fx:id="basicItem" mnemonicParsing="false" text="Basic" />
+        </items>
+      </MenuButton>
+      <TextField fx:id="resultField" layoutX="14.0" layoutY="50.0" prefHeight="26.0" prefWidth="247.0" />
+      <TextField fx:id="inputField" layoutX="14.0" layoutY="82.0" prefHeight="26.0" prefWidth="247.0" />
+      <MenuButton fx:id="fromSelector" layoutX="14.0" layoutY="116.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="121.0" text="Decimal">
+        <items>
+          <MenuItem fx:id="Decimal" mnemonicParsing="false" text="Action 1" />
+          <MenuItem fx:id="Hex" mnemonicParsing="false" text="Action 2" />
+            <MenuItem fx:id="Binary" mnemonicParsing="false" text="Action 2" />
+        </items>
+      </MenuButton>
+      <MenuButton fx:id="endianSelector" layoutX="16.0" layoutY="150.0" mnemonicParsing="false" text="Little-endian">
+        <items>
+          <MenuItem fx:id="littleItem" mnemonicParsing="false" text="Little-endian" />
+          <MenuItem fx:id="bigItem" mnemonicParsing="false" text="Big-endian" />
+        </items>
+      </MenuButton>
+      <MenuButton fx:id="toSelector" layoutX="139.0" layoutY="116.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="121.0" text="Binary">
+        <items>
+          <MenuItem mnemonicParsing="false" text="Action 1" />
+          <MenuItem mnemonicParsing="false" text="Action 2" />
+        </items>
+      </MenuButton>
+   </children>
+</AnchorPane>
