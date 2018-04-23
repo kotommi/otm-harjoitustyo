@@ -12,7 +12,7 @@ public class Converter {
     private Endian endian;
 
     /**
-     * Default constructor that sets the values to the GUI defaults
+     * Default constructor that sets the values to the GUI defaults.
      */
     public Converter() {
         this.from = Encoding.DECIMAL;
@@ -23,7 +23,7 @@ public class Converter {
     /**
      * Sets endian.
      *
-     * @param endian
+     * @param endian The endianness to use.
      */
     public void setEndian(Endian endian) {
         this.endian = endian;
@@ -152,7 +152,7 @@ public class Converter {
     /**
      * Getter for Encoding from.
      *
-     * @return
+     * @return enum Encoding.
      */
     public Encoding getFrom() {
         return from;
@@ -161,7 +161,7 @@ public class Converter {
     /**
      * Getter for Encoding to.
      *
-     * @return
+     * @return enum Encoding.
      */
     public Encoding getTo() {
         return to;
@@ -170,7 +170,7 @@ public class Converter {
     /**
      * Getter for Endian.
      *
-     * @return
+     * @return enum Endian.
      */
     public Endian getEndian() {
         return endian;

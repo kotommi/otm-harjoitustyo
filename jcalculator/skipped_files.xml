@@ -7,4 +7,5 @@
 <suppressions>
     <suppress files="jcalculator.ui.Mainview.java" checks="[a-zA-Z0-9]*"/>
     <suppress files="jcalculator.ui.FXMLBasicViewController.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="jcalculator.ui.FXMLProgrammingController.java" checks="[a-zA-Z0-9]*"/>
 </suppressions>

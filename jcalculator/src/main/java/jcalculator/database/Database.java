@@ -19,9 +19,9 @@ public class Database {
     private final String dbName;
 
     /**
-     * Default constructor that stores the dbName
+     * Default constructor that stores the dbName.
      *
-     * @param dbName
+     * @param dbName Path to the .db to be used.
      */
     public Database(String dbName) {
         this.dbName = dbName;
