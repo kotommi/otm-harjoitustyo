@@ -21,12 +21,12 @@
       <TextField fx:id="inputField" layoutX="14.0" layoutY="82.0" prefHeight="26.0" prefWidth="247.0" />
       <MenuButton fx:id="fromSelector" layoutX="14.0" layoutY="116.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="121.0" text="Decimal">
         <items>
-          <MenuItem fx:id="Decimal" mnemonicParsing="false" text="Action 1" />
-          <MenuItem fx:id="Hex" mnemonicParsing="false" text="Action 2" />
-            <MenuItem fx:id="Binary" mnemonicParsing="false" text="Action 2" />
+          <MenuItem fx:id="fromDecimalItem" mnemonicParsing="false" text="Decimal" />
+          <MenuItem fx:id="fromHexItem" mnemonicParsing="false" text="Hex" />
+            <MenuItem fx:id="fromBinaryItem" mnemonicParsing="false" text="Binary" />
         </items>
       </MenuButton>
-      <MenuButton fx:id="endianSelector" layoutX="16.0" layoutY="150.0" mnemonicParsing="false" text="Little-endian">
+      <MenuButton fx:id="endianSelector" layoutX="13.0" layoutY="150.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="121.0" text="Little-endian">
         <items>
           <MenuItem fx:id="littleItem" mnemonicParsing="false" text="Little-endian" />
           <MenuItem fx:id="bigItem" mnemonicParsing="false" text="Big-endian" />
@@ -34,8 +34,9 @@
       </MenuButton>
       <MenuButton fx:id="toSelector" layoutX="139.0" layoutY="116.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="121.0" text="Binary">
         <items>
-          <MenuItem mnemonicParsing="false" text="Action 1" />
-          <MenuItem mnemonicParsing="false" text="Action 2" />
+          <MenuItem fx:id="toBinaryItem" mnemonicParsing="false" text="Action 1" />
+          <MenuItem fx:id="toDecimalItem" mnemonicParsing="false" text="Decimal" />
+            <MenuItem fx:id="toHexItem" mnemonicParsing="false" text="Hex" />
         </items>
       </MenuButton>
    </children>

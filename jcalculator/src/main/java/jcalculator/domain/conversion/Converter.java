@@ -24,6 +24,7 @@ public class Converter {
     }
 
     public String convert(String input) {
+        input = input.trim();
         switch (from) {
             case DECIMAL:
                 return parseDecimal(input);
@@ -55,7 +56,11 @@ public class Converter {
         try {
             parse = Integer.decode(input);
         } catch (NumberFormatException e) {
-            return "NaN";
+            try {
+                parse = Integer.parseInt(input, 16);
+            } catch (NumberFormatException ex) {
+                return "NaN";
+            }
         }
         return convertInt(parse);
     }
@@ -72,5 +77,17 @@ public class Converter {
 
     private int reverseEndian(int i) {
         return (i & 0xff) << 24 | (i & 0xff00) << 8 | (i & 0xff0000) >> 8 | (i >> 24) & 0xff;
+    }
+
+    public Encoding getFrom() {
+        return from;
+    }
+
+    public Encoding getTo() {
+        return to;
+    }
+
+    public Endian getEndian() {
+        return endian;
     }
 }
