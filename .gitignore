@@ -5,3 +5,5 @@ target
 /jcalculator/nbproject/
 *~
 *.db
+.idea
+*.iml
