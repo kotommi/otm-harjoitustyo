@@ -50,8 +50,14 @@ public class DoubleUtilTest {
     
     @Test
     public void decimalFormattingTest() {
-        double d = 1d/3d;
+        double d = 1d / 3d;
         assertEquals("0.333333", DoubleUtil.toString(d));
+    }
+    
+    @Test
+    public void dumbTest() {
+        DoubleUtil d = new DoubleUtil();
+        assertNotNull(d);
     }
     
 }

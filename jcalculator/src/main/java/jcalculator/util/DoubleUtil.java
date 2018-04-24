@@ -12,7 +12,7 @@ import java.text.DecimalFormat;
  *
  * @author tomko
  */
-public class DoubleUtil {
+public final class DoubleUtil {
 
     /**
      * Removes the separator dot from doubles that are integers.
