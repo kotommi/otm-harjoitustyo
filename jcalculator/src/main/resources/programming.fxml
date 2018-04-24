@@ -6,7 +6,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="189.0" prefWidth="273.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.141" fx:controller="jcalculator.ui.FXMLProgrammingController">
+<AnchorPane id="AnchorPane" prefHeight="189.0" prefWidth="273.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jcalculator.ui.FXMLProgrammingController">
     <stylesheets>
         <URL value="@/styles/programming.css" />
     </stylesheets>
@@ -34,7 +34,7 @@
       </MenuButton>
       <MenuButton fx:id="toSelector" layoutX="139.0" layoutY="116.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="121.0" text="Binary">
         <items>
-          <MenuItem fx:id="toBinaryItem" mnemonicParsing="false" text="Action 1" />
+          <MenuItem fx:id="toBinaryItem" mnemonicParsing="false" text="Binary" />
           <MenuItem fx:id="toDecimalItem" mnemonicParsing="false" text="Decimal" />
             <MenuItem fx:id="toHexItem" mnemonicParsing="false" text="Hex" />
         </items>

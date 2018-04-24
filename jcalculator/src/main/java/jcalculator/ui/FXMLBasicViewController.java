@@ -85,6 +85,8 @@ public class FXMLBasicViewController implements Initializable {
     private Button buttonAns;
     @FXML
     private Button buttonPower;
+    @FXML
+    private Button buttonSqrt;
 
     public void setDoubleEvaluator(DoubleEvaluator de) {
         this.de = de;
@@ -164,7 +166,9 @@ public class FXMLBasicViewController implements Initializable {
         buttonPower.setOnAction(event -> {
             insertCharacter("^");
         });
-
+        buttonSqrt.setOnAction(event -> {
+            insertCharacter("^(1/2)");
+        });
     }
 
     public void insertCharacter(String c) {
