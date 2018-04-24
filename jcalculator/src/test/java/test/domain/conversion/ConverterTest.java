@@ -12,11 +12,11 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class ConverterTest {
+
     private Converter converter;
 
     public ConverterTest() {
     }
-
 
     @Before
     public void setUp() {
@@ -24,10 +24,54 @@ public class ConverterTest {
     }
 
     @Test
-    public void constructor() {
+    public void constructorAndGetters() {
         assertNotNull(this.converter);
         assertEquals(converter.getFrom(), Encoding.DECIMAL);
         assertEquals(converter.getTo(), Encoding.BINARY);
         assertEquals(converter.getEndian(), Endian.LITTLE);
+    }
+
+    @Test
+    public void setters() {
+        this.converter.setFrom(Encoding.HEX);
+        assertEquals(converter.getFrom(), Encoding.HEX);
+        this.converter.setTo(Encoding.DECIMAL);
+        assertEquals(converter.getTo(), Encoding.DECIMAL);
+        this.converter.setEndian(Endian.BIG);
+        assertEquals(converter.getEndian(), Endian.BIG);
+    }
+
+    @Test
+    public void convertDecBin() {
+        String input = "10";
+        String result = converter.convert(input);
+        assertEquals("1010", result);
+    }
+
+    @Test
+    public void convertBinDec() {
+        String input = "1010";
+        converter.setFrom(Encoding.BINARY);
+        converter.setTo(Encoding.DECIMAL);
+        String result = converter.convert(input);
+        assertEquals("10", result);
+    }
+
+    @Test
+    public void convertHexDec() {
+        String input = "FF";
+        converter.setFrom(Encoding.HEX);
+        converter.setTo(Encoding.DECIMAL);
+        String result = converter.convert(input);
+        assertEquals("255", result);
+    }
+
+    @Test
+    public void convertHexDecV2() {
+        String input = "0xFF";
+        converter.setFrom(Encoding.HEX);
+        converter.setTo(Encoding.DECIMAL);
+        String result = converter.convert(input);
+        assertEquals("255", result);
     }
 }

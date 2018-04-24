@@ -10,7 +10,6 @@ import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Menu;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
@@ -24,6 +23,7 @@ import jcalculator.domain.conversion.Endian;
  * @author tomko
  */
 public class FXMLProgrammingController implements Initializable {
+
     private Mainview app;
     private Converter converter;
 
@@ -60,7 +60,6 @@ public class FXMLProgrammingController implements Initializable {
     private MenuItem littleItem;
     @FXML
     private MenuItem bigItem;
-
 
     public void setApp(Mainview app) {
         this.app = app;
@@ -132,7 +131,7 @@ public class FXMLProgrammingController implements Initializable {
 
     public void evaluate() {
         this.inputField.setOnKeyTyped(keyEvent -> {
-            String s = inputField.getText();
+            String s = inputField.getText() + keyEvent.getCharacter();
             if (s.isEmpty()) {
                 resultField.setText("");
             } else {
