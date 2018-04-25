@@ -10,9 +10,9 @@
 | 16.4  | 6    | Toiminnallisuuden lisäystä, basicview hyvällä mallilla |
 | 16.4  | 2    | Testien kirjoittamista |
 | 17.4  | 4    | Refaktorointia, testien lisäystä, dokumentaatiota |
-|       |      |  |
-|       |      |  |
+| 23.4  | 8    | Näkymien vaihdon koodaus, base-conversion näkymän koodaus |
+| 24.4  | 6    | Javadocseja, testejä, eilisen toiminnallisuuden parantelua |
 |       |      |  |
 |       |      |  |
 |       |      | |
-| yht   | 28   | | 
+| yht   | 42   | | 
