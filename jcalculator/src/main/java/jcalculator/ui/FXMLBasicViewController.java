@@ -43,6 +43,8 @@ public class FXMLBasicViewController implements Initializable {
 
     @FXML
     private MenuItem basicItem;
+    @FXML
+    private MenuItem probItem;
 
     @FXML
     private MenuItem programmingItem;
@@ -114,6 +116,9 @@ public class FXMLBasicViewController implements Initializable {
     public void changeView() {
         programmingItem.setOnAction(event -> {
             app.setProgrammingScene();
+        });
+        probItem.setOnAction(event -> {
+            app.setProbabilityScene();
         });
     }
 

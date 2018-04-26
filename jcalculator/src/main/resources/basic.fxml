@@ -19,6 +19,7 @@
             <items>
                 <MenuItem fx:id="basicItem" mnemonicParsing="false" text="Basic" />
             <MenuItem fx:id="programmingItem" mnemonicParsing="false" text="Programming" />
+            <MenuItem fx:id="probItem" mnemonicParsing="false" text="Probability" />
             </items>
         </MenuButton>
         <Button fx:id="button8" layoutX="66.0" layoutY="270.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="41.0" text="8" />

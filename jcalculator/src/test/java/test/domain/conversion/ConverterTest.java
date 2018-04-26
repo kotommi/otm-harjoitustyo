@@ -12,25 +12,26 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class ConverterTest {
-    
+
     private Converter converter;
-    
+
     public ConverterTest() {
     }
-    
+
     @Before
     public void setUp() {
         this.converter = new Converter();
     }
-    
+
     @Test
     public void constructorAndGetters() {
         assertNotNull(this.converter);
         assertEquals(converter.getFrom(), Encoding.DECIMAL);
         assertEquals(converter.getTo(), Encoding.BINARY);
         assertEquals(converter.getEndian(), Endian.LITTLE);
+        assertEquals(converter.getEndianTo(), Endian.LITTLE);
     }
-    
+
     @Test
     public void setters() {
         this.converter.setFrom(Encoding.HEX);
@@ -39,15 +40,25 @@ public class ConverterTest {
         assertEquals(converter.getTo(), Encoding.DECIMAL);
         this.converter.setEndian(Endian.BIG);
         assertEquals(converter.getEndian(), Endian.BIG);
+        this.converter.setEndianTo(Endian.BIG);
+        assertEquals(converter.getEndianTo(), Endian.BIG);
     }
-    
+
     @Test
     public void convertDecBin() {
         String input = "10";
         String result = converter.convert(input);
         assertEquals("1010", result);
     }
-    
+
+    @Test
+    public void convertDecBinBigEndian() {
+        converter.setEndianTo(Endian.BIG);
+        String input = "10";
+        String result = converter.convert(input);
+        assertEquals(result, "10100000000000000000000000000000");
+    }
+
     @Test
     public void convertBinDec() {
         String input = "1010";
@@ -56,7 +67,7 @@ public class ConverterTest {
         String result = converter.convert(input);
         assertEquals("10", result);
     }
-    
+
     @Test
     public void convertHexDec() {
         String input = "FF";
@@ -65,7 +76,7 @@ public class ConverterTest {
         String result = converter.convert(input);
         assertEquals("255", result);
     }
-    
+
     @Test
     public void convertHexDecV2() {
         String input = "0xFF";
@@ -74,7 +85,7 @@ public class ConverterTest {
         String result = converter.convert(input);
         assertEquals("255", result);
     }
-    
+
     @Test
     public void errors() {
         String result = converter.convert("aaba");
@@ -86,7 +97,7 @@ public class ConverterTest {
         result = converter.convert("358");
         assertEquals("NaN", result);
     }
-    
+
     @Test
     public void reverseEndian() {
         converter.setFrom(Encoding.HEX);

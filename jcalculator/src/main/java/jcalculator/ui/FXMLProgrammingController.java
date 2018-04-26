@@ -7,6 +7,10 @@ package jcalculator.ui;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.event.Event;
+import javafx.event.EventTarget;
+import javafx.event.EventType;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -35,6 +39,8 @@ public class FXMLProgrammingController implements Initializable {
     //viewSelector
     @FXML
     private MenuItem basicItem;
+    @FXML
+    private MenuItem probItem;
     //fromSelector
     @FXML
     private MenuButton fromSelector;
@@ -60,6 +66,13 @@ public class FXMLProgrammingController implements Initializable {
     private MenuItem littleItem;
     @FXML
     private MenuItem bigItem;
+    //endianToSelector
+    @FXML
+    private MenuButton endianSelector2;
+    @FXML
+    private MenuItem littleItem2;
+    @FXML
+    private MenuItem bigItem2;
 
     public void setApp(Mainview app) {
         this.app = app;
@@ -75,10 +88,13 @@ public class FXMLProgrammingController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        resultField.setEditable(false);
+        endianSelector.setDisable(true);
         changeView();
         changeFrom();
         changeTo();
         changeEndian();
+        changeEndianTo();
         evaluate();
     }
 
@@ -93,18 +109,39 @@ public class FXMLProgrammingController implements Initializable {
         });
     }
 
+    public void changeEndianTo() {
+        littleItem2.setOnAction(event -> {
+            converter.setEndianTo(Endian.LITTLE);
+            endianSelector2.setText(littleItem2.getText());
+            inputField.requestFocus();
+        });
+        bigItem2.setOnAction(event -> {
+            converter.setEndianTo(Endian.BIG);
+            endianSelector2.setText(bigItem2.getText());
+            inputField.requestFocus();
+        });
+    }
+
     public void changeFrom() {
         fromDecimalItem.setOnAction(event -> {
             converter.setFrom(Encoding.DECIMAL);
             fromSelector.setText(fromDecimalItem.getText());
+            inputField.requestFocus();
+            littleItem.fire();
+            endianSelector.setDisable(true);
         });
         fromHexItem.setOnAction(event -> {
             converter.setFrom(Encoding.HEX);
             fromSelector.setText(fromHexItem.getText());
+            endianSelector.setDisable(false);
+            inputField.requestFocus();
         });
         fromBinaryItem.setOnAction(event -> {
             converter.setFrom(Encoding.BINARY);
             fromSelector.setText(fromBinaryItem.getText());
+            endianSelector.setDisable(false);
+            inputField.requestFocus();
+
         });
     }
 
@@ -112,20 +149,27 @@ public class FXMLProgrammingController implements Initializable {
         toBinaryItem.setOnAction(event -> {
             converter.setTo(Encoding.BINARY);
             toSelector.setText(toBinaryItem.getText());
+            inputField.requestFocus();
         });
         toDecimalItem.setOnAction(actionEvent -> {
             converter.setTo(Encoding.DECIMAL);
             toSelector.setText(toDecimalItem.getText());
+            inputField.requestFocus();
         });
         toHexItem.setOnAction(actionEvent -> {
             converter.setTo(Encoding.HEX);
             toSelector.setText(toHexItem.getText());
+            inputField.fireEvent(new ActionEvent());
+            //inputField.requestFocus();
         });
     }
 
     public void changeView() {
         this.basicItem.setOnAction(event -> {
             this.app.setBasicScene();
+        });
+        this.basicItem.setOnAction(event -> {
+            this.app.setProbabilityScene();
         });
     }
 

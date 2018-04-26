@@ -109,4 +109,8 @@ public class Mainview extends Application {
         launch(Mainview.class);
     }
 
+    void setProbabilityScene() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }

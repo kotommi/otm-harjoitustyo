@@ -15,6 +15,7 @@
         <items>
           <MenuItem fx:id="programmingItem" mnemonicParsing="false" text="Programming" />
           <MenuItem fx:id="basicItem" mnemonicParsing="false" text="Basic" />
+            <MenuItem fx:id="probItem" mnemonicParsing="false" text="Probability" />
         </items>
       </MenuButton>
       <TextField fx:id="resultField" layoutX="14.0" layoutY="50.0" prefHeight="26.0" prefWidth="247.0" />
@@ -38,6 +39,12 @@
           <MenuItem fx:id="toDecimalItem" mnemonicParsing="false" text="Decimal" />
             <MenuItem fx:id="toHexItem" mnemonicParsing="false" text="Hex" />
         </items>
+      </MenuButton>
+      <MenuButton fx:id="endianSelector2" layoutX="139.0" layoutY="150.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="121.0" text="Little-endian">
+         <items>
+            <MenuItem fx:id="littleItem2" mnemonicParsing="false" text="Little-endian" />
+            <MenuItem fx:id="bigItem2" mnemonicParsing="false" text="Big-endian" />
+         </items>
       </MenuButton>
    </children>
 </AnchorPane>

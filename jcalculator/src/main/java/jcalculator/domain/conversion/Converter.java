@@ -10,6 +10,7 @@ public class Converter {
     private Encoding from;
     private Encoding to;
     private Endian endian;
+    private Endian endianTo;
 
     /**
      * Default constructor that sets the values to the GUI defaults.
@@ -18,19 +19,29 @@ public class Converter {
         this.from = Encoding.DECIMAL;
         this.to = Encoding.BINARY;
         this.endian = Endian.LITTLE;
+        this.endianTo = Endian.LITTLE;
     }
 
     /**
-     * Sets endian.
+     * Sets endianness of input.
      *
-     * @param endian The endianness to use.
+     * @param endian enum Endian.
      */
     public void setEndian(Endian endian) {
         this.endian = endian;
     }
 
     /**
-     * Sets the starting encoding.
+     * Sets the endianness of output.
+     *
+     * @param endian enum Endian.
+     */
+    public void setEndianTo(Endian endian) {
+        this.endianTo = endian;
+    }
+
+    /**
+     * Sets the input encoding.
      *
      * @param from Value of the enum Encoding.
      */
@@ -39,7 +50,7 @@ public class Converter {
     }
 
     /**
-     * Sets the base to encode to.
+     * Sets the output format to encode to.
      *
      * @param to Value of the enum Encoding.
      */
@@ -55,6 +66,7 @@ public class Converter {
      */
     public String convert(String input) {
         input = input.trim();
+
         switch (from) {
             case DECIMAL:
                 return parseDecimal(input);
@@ -73,16 +85,23 @@ public class Converter {
      * @return String formatted to a given base.
      */
     private String convertInt(int input) {
-        if (endian == Endian.BIG) {
+        if (endian == Endian.BIG && endianTo == Endian.BIG) {
+            input = reverseEndian(input);
+        } else if (endian == Endian.LITTLE && endianTo == Endian.BIG) {
             input = reverseEndian(input);
         }
+
         switch (to) {
             case DECIMAL:
                 return Integer.toString(input);
             case HEX:
                 return Integer.toHexString(input);
             case BINARY:
-                return Integer.toBinaryString(input);
+                String ret = Integer.toBinaryString(input);
+                if (endian == Endian.BIG && input > 0) {
+                    ret = "0" + ret;
+                }
+                return ret;
         }
         return "";
     }
@@ -94,6 +113,13 @@ public class Converter {
      * @return
      */
     private String parseHex(String input) {
+        if (endian == Endian.BIG) {
+            StringBuilder sb = new StringBuilder(input);
+            while (sb.length() < 7) {
+                sb.append("0");
+            }
+            input = sb.toString();
+        }
         int parse;
         try {
             parse = Integer.decode(input);
@@ -130,6 +156,13 @@ public class Converter {
      * @return
      */
     private String parseBinary(String input) {
+        if (endian == Endian.BIG) {
+            StringBuilder sb = new StringBuilder(input);
+            while (sb.length() < 31) {
+                sb.append("0");
+            }
+            input = sb.toString();
+        }
         int parse;
         try {
             parse = Integer.parseInt(input, 2);
@@ -174,6 +207,15 @@ public class Converter {
      */
     public Endian getEndian() {
         return endian;
+    }
+
+    /**
+     * Getter for output Endian.
+     *
+     * @return enum Endian
+     */
+    public Endian getEndianTo() {
+        return endianTo;
     }
 
 }
