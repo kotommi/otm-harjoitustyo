@@ -85,12 +85,7 @@ public class Converter {
      * @return String formatted to a given base.
      */
     private String convertInt(int input) {
-        if (endian == Endian.BIG && endianTo == Endian.BIG) {
-            input = reverseEndian(input);
-        } else if (endian == Endian.LITTLE && endianTo == Endian.BIG) {
-            input = reverseEndian(input);
-        }
-
+        input = handleEndians(input);
         switch (to) {
             case DECIMAL:
                 return Integer.toString(input);
@@ -98,12 +93,35 @@ public class Converter {
                 return Integer.toHexString(input);
             case BINARY:
                 String ret = Integer.toBinaryString(input);
-                if (endian == Endian.BIG && input > 0) {
-                    ret = "0" + ret;
+                if (endianTo == Endian.BIG && input > 0) {
+                    ret = appendZeros(ret);
                 }
                 return ret;
         }
         return "";
+    }
+
+    private int handleEndians(int input) {
+        if (endian == Endian.BIG && endianTo == Endian.BIG) {
+            input = reverseEndian(input);
+        } else if (endian == Endian.LITTLE && endianTo == Endian.BIG) {
+            input = reverseEndian(input);
+        }
+        return input;
+    }
+
+    /**
+     * Makes Big-endian results prettier by adding tailing zeros.
+     *
+     * @param ret A string to modify
+     * @return a binary-String
+     */
+    private String appendZeros(String ret) {
+        StringBuilder sb = new StringBuilder(ret);
+        while (sb.length() < 31) {
+            sb.append("0");
+        }
+        return sb.toString();
     }
 
     /**
