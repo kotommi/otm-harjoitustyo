@@ -12,7 +12,7 @@
 | 17.4  | 4    | Refaktorointia, testien lisäystä, dokumentaatiota |
 | 23.4  | 8    | Näkymien vaihdon koodaus, base-conversion näkymän koodaus |
 | 24.4  | 6    | Javadocseja, testejä, eilisen toiminnallisuuden parantelua |
-|       |      |  |
-|       |      |  |
-|       |      | |
-| yht   | 42   | | 
+| 30.4  | 2    | Refaktorointia, Viime viikon palautuksen toiminnallisuuden korjausta
+| 1.5   | 2    | Sekvenssi- ja pakkauskaavio  |
+| 1.5   | 2    | Testejä, dokumentaatiota ja refaktorointia
+| yht   | 48   |
