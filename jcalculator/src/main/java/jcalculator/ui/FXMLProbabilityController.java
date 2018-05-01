@@ -14,7 +14,7 @@ import javafx.fxml.Initializable;
  *
  * @author tomko
  */
-public class ProbabilityController implements Initializable {
+public class FXMLProbabilityController implements Initializable {
 
     private Mainview app;
 
