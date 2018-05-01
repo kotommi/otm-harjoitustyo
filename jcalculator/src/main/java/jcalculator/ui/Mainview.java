@@ -44,6 +44,10 @@ public class Mainview extends Application {
             Properties properties = new Properties();
             properties.load(new FileInputStream("config.properties"));
             dbName = properties.getProperty("dbFile");
+            if (!dbName.contains(".db")) {
+                dbName += ".db";
+                properties.setProperty("dbFile", dbName);
+            }
         } catch (Exception e) {
             System.out.println("Missing settings file! (config.properties)");
         }

@@ -101,6 +101,12 @@ public class Converter {
         return "";
     }
 
+    /**
+     * Handles the output endianness.
+     *
+     * @param input an int to possibly convert
+     * @return converted int
+     */
     private int handleEndians(int input) {
         if (endian == Endian.BIG && endianTo == Endian.BIG) {
             input = reverseEndian(input);

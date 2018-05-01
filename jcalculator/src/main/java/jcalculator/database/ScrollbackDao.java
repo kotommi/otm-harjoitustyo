@@ -33,7 +33,7 @@ public class ScrollbackDao {
     public ScrollbackDao(Database db) {
         this.db = db;
         try {
-            this.db.getConnection().prepareStatement("CREATE TABLE IF NOT EXISTS Scrollback (id integer, line varchar(999))").execute();
+            this.db.getConnection().prepareStatement("CREATE TABLE IF NOT EXISTS Scrollback (id integer PRIMARY KEY, line varchar(999))").execute();
         } catch (SQLException ex) {
             logError(ex);
         }
