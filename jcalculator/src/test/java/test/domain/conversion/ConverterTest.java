@@ -49,6 +49,18 @@ public class ConverterTest {
         String input = "10";
         String result = converter.convert(input);
         assertEquals("1010", result);
+        input = "1234567890";
+        result = converter.convert(input);
+        assertEquals("1001001100101100000001011010010", result);
+    }
+    
+    @Test
+    public void littleToBig() {
+        converter.setFrom(Encoding.BINARY);
+        converter.setEndianTo(Endian.BIG);
+        String input = "00111011100101011011001010011101";
+        String result = converter.convert(input);
+        assertEquals("10011101101100101001010100111011", result);
     }
     
     @Test
@@ -59,6 +71,10 @@ public class ConverterTest {
         String result = converter.convert(input);
         String expected = "1010000000000000000000000000000";
         assertEquals("result length: " + result.length() + ", expected: " + expected.length(), result, expected);
+        input = "999666333";
+        result = converter.convert(input);
+        expected = "10011101101100101001010100111011";
+        assertEquals("", expected, result);
     }
     
     @Test
