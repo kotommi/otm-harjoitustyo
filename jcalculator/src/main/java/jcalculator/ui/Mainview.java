@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package jcalculator.ui;
 
 import com.fathzer.soft.javaluator.DoubleEvaluator;
@@ -26,7 +21,7 @@ import jcalculator.domain.conversion.Converter;
  * @author tomko
  */
 public class Mainview extends Application {
-    
+
     private DoubleEvaluator eval;
     private Stage stage;
     private Scene basicview;
@@ -35,7 +30,7 @@ public class Mainview extends Application {
     private Scene programmingview;
     private FXMLProgrammingController pvc;
     private Converter converter;
-    
+
     @Override
     public void init() throws Exception {
         eval = new DoubleEvaluator();
@@ -49,18 +44,17 @@ public class Mainview extends Application {
                 properties.setProperty("dbFile", dbName);
             }
         } catch (Exception e) {
-            System.out.println("Missing settings file! (config.properties)");
         }
         sbdao = new ScrollbackDao(new Database(dbName));
         createBasicScene();
     }
-    
+
     @Override
     public void start(Stage stage) throws Exception {
         this.stage = stage;
         setBasicScene();
     }
-    
+
     public void createBasicScene() {
         FXMLLoader basicViewLoader = new FXMLLoader();
         basicViewLoader.setLocation(this.getClass().getResource("/basic.fxml"));
@@ -77,7 +71,7 @@ public class Mainview extends Application {
         basic.getStylesheets().add("/styles/fonts.css");
         basicview = new Scene(basic);
     }
-    
+
     public void setBasicScene() {
         stage.setResizable(true);
         stage.setTitle("jcalculator");
@@ -88,7 +82,7 @@ public class Mainview extends Application {
         stage.show();
         stage.setResizable(false);
     }
-    
+
     public void setProgrammingScene() {
         if (programmingview == null) {
             createProgrammingScene();
@@ -97,7 +91,7 @@ public class Mainview extends Application {
         stage.setScene(programmingview);
         stage.setResizable(false);
     }
-    
+
     private void createProgrammingScene() {
         FXMLLoader programmingViewLoader = new FXMLLoader();
         programmingViewLoader.setLocation(this.getClass().getResource("/programming.fxml"));
@@ -114,9 +108,9 @@ public class Mainview extends Application {
         programming.getStylesheets().add("/styles/fonts.css");
         programmingview = new Scene(programming);
     }
-    
+
     public static void main(String[] args) {
         launch(Mainview.class);
     }
-    
+
 }
