@@ -89,6 +89,13 @@ public class ConverterTest {
     }
     
     @Test
+    public void negatives() {
+        String input = "-1";
+        String result = converter.convert(input);
+        assertEquals("Negative", result);
+    }
+    
+    @Test
     public void errors() {
         String result = converter.convert("aaba");
         assertEquals("NaN", result);

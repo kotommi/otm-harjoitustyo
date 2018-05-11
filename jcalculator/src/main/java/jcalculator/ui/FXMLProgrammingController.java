@@ -14,15 +14,19 @@ import javafx.event.EventType;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.Dialog;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
+import javafx.stage.Window;
 import jcalculator.domain.conversion.Converter;
 import jcalculator.domain.conversion.Encoding;
 import jcalculator.domain.conversion.Endian;
 
 /**
- * FXML Controller class
+ * FXML Controller class. View for converting numbers from and to different
+ * bases.
  *
  * @author tomko
  */
@@ -39,8 +43,6 @@ public class FXMLProgrammingController implements Initializable {
     //viewSelector
     @FXML
     private MenuItem basicItem;
-    @FXML
-    private MenuItem probItem;
     //fromSelector
     @FXML
     private MenuButton fromSelector;
@@ -73,6 +75,8 @@ public class FXMLProgrammingController implements Initializable {
     private MenuItem littleItem2;
     @FXML
     private MenuItem bigItem2;
+    @FXML
+    private Button buttonHelp;
 
     public void setApp(Mainview app) {
         this.app = app;
@@ -96,8 +100,12 @@ public class FXMLProgrammingController implements Initializable {
         changeEndian();
         changeEndianTo();
         evaluate();
+        helpButton();
     }
 
+    /**
+     * Initializes the endian selectors.
+     */
     public void changeEndian() {
         littleItem.setOnAction(actionEvent -> {
             converter.setEndian(Endian.LITTLE);
@@ -109,6 +117,9 @@ public class FXMLProgrammingController implements Initializable {
         });
     }
 
+    /**
+     * Initializes the endian selectors.
+     */
     public void changeEndianTo() {
         littleItem2.setOnAction(event -> {
             converter.setEndianTo(Endian.LITTLE);
@@ -122,6 +133,9 @@ public class FXMLProgrammingController implements Initializable {
         });
     }
 
+    /**
+     * Initializes the encoding selector.
+     */
     public void changeFrom() {
         fromDecimalItem.setOnAction(event -> {
             converter.setFrom(Encoding.DECIMAL);
@@ -145,6 +159,9 @@ public class FXMLProgrammingController implements Initializable {
         });
     }
 
+    /**
+     * Initializes the encoding selector.
+     */
     public void changeTo() {
         toBinaryItem.setOnAction(event -> {
             converter.setTo(Encoding.BINARY);
@@ -164,15 +181,18 @@ public class FXMLProgrammingController implements Initializable {
         });
     }
 
+    /**
+     * Change view selector.
+     */
     public void changeView() {
         this.basicItem.setOnAction(event -> {
             this.app.setBasicScene();
         });
-        this.basicItem.setOnAction(event -> {
-            this.app.setProbabilityScene();
-        });
     }
 
+    /**
+     * Initialize evaluate eventhandler.
+     */
     public void evaluate() {
         this.inputField.setOnKeyTyped(keyEvent -> {
             String s = inputField.getText() + keyEvent.getCharacter();
@@ -183,6 +203,21 @@ public class FXMLProgrammingController implements Initializable {
                 resultField.setText(s);
             }
         });
+    }
+
+    public void helpButton() {
+        buttonHelp.setOnAction(event -> {
+            showHelp();
+        });
+    }
+
+    private void showHelp() {
+        Dialog dia = new Dialog();
+        dia.setTitle("Help");
+        dia.setContentText("help");
+        dia.show();
+        Window window = dia.getDialogPane().getScene().getWindow();
+        window.setOnCloseRequest(event -> window.hide());
     }
 
 }

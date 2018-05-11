@@ -154,6 +154,9 @@ public class Converter {
                 return "NaN";
             }
         }
+        if (parse < 0) {
+            return "Negative";
+        }
         return convertInt(parse);
     }
 
@@ -169,6 +172,9 @@ public class Converter {
             parse = Integer.parseInt(input.trim());
         } catch (NumberFormatException e) {
             return "NaN";
+        }
+        if (parse < 0) {
+            return "Negative";
         }
         return convertInt(parse);
     }
@@ -192,6 +198,9 @@ public class Converter {
             parse = Integer.parseInt(input, 2);
         } catch (NumberFormatException e) {
             return "NaN";
+        }
+        if (parse < 0) {
+            return "Negative";
         }
         return convertInt(parse);
     }

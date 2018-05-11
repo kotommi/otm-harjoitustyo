@@ -65,7 +65,7 @@ public class DaoTest {
         String sb = dao.getScrollback();
         assertEquals("rivi10\nrivi11\nrivi12\nrivi13\nrivi14\nrivi15\nrivi16\nrivi17\nrivi18\nrivi19", sb);
     }
-    
+        
     @Test
     public void updateWorks() {
         PreparedStatement ps = null;
@@ -73,6 +73,7 @@ public class DaoTest {
             ps = db.getConnection().prepareStatement("INSERT INTO Scrollback (line) VALUES ('pepsi')");
         } catch (SQLException ex) {
             Logger.getLogger(DaoTest.class.getName()).log(Level.SEVERE, null, ex);
+            assertNotNull("SQL error", null);
         }
         assertTrue(dao.executeUpdateStatement(ps));
     }

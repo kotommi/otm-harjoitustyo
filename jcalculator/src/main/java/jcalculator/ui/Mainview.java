@@ -26,7 +26,7 @@ import jcalculator.domain.conversion.Converter;
  * @author tomko
  */
 public class Mainview extends Application {
-
+    
     private DoubleEvaluator eval;
     private Stage stage;
     private Scene basicview;
@@ -35,7 +35,7 @@ public class Mainview extends Application {
     private Scene programmingview;
     private FXMLProgrammingController pvc;
     private Converter converter;
-
+    
     @Override
     public void init() throws Exception {
         eval = new DoubleEvaluator();
@@ -54,13 +54,13 @@ public class Mainview extends Application {
         sbdao = new ScrollbackDao(new Database(dbName));
         createBasicScene();
     }
-
+    
     @Override
     public void start(Stage stage) throws Exception {
         this.stage = stage;
         setBasicScene();
     }
-
+    
     public void createBasicScene() {
         FXMLLoader basicViewLoader = new FXMLLoader();
         basicViewLoader.setLocation(this.getClass().getResource("/basic.fxml"));
@@ -74,25 +74,30 @@ public class Mainview extends Application {
         bvc.setApp(this);
         bvc.setDoubleEvaluator(eval);
         bvc.setScrollbackDao(sbdao);
+        basic.getStylesheets().add("/styles/fonts.css");
         basicview = new Scene(basic);
     }
-
+    
     public void setBasicScene() {
+        stage.setResizable(true);
         stage.setTitle("jcalculator");
         stage.setScene(basicview);
         stage.setOnShowing(e -> bvc.setScrollback());
         stage.setOnHidden(e -> bvc.shutdown());
         bvc.changeView();
         stage.show();
+        stage.setResizable(false);
     }
-
+    
     public void setProgrammingScene() {
         if (programmingview == null) {
             createProgrammingScene();
         }
+        stage.setResizable(true);
         stage.setScene(programmingview);
+        stage.setResizable(false);
     }
-
+    
     private void createProgrammingScene() {
         FXMLLoader programmingViewLoader = new FXMLLoader();
         programmingViewLoader.setLocation(this.getClass().getResource("/programming.fxml"));
@@ -106,15 +111,12 @@ public class Mainview extends Application {
         pvc.setApp(this);
         this.converter = new Converter();
         pvc.setConverter(converter);
+        programming.getStylesheets().add("/styles/fonts.css");
         programmingview = new Scene(programming);
     }
-
+    
     public static void main(String[] args) {
         launch(Mainview.class);
     }
-
-    void setProbabilityScene() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
+    
 }

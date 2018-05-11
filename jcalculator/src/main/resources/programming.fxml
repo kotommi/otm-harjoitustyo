@@ -1,25 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="189.0" prefWidth="273.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jcalculator.ui.FXMLProgrammingController">
+<AnchorPane id="AnchorPane" prefHeight="189.0" prefWidth="301.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jcalculator.ui.FXMLProgrammingController">
     <stylesheets>
-        <URL value="@/styles/programming.css" />
     </stylesheets>
    <children>
       <MenuButton fx:id="viewButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="Programming">
         <items>
           <MenuItem fx:id="programmingItem" mnemonicParsing="false" text="Programming" />
           <MenuItem fx:id="basicItem" mnemonicParsing="false" text="Basic" />
-            <MenuItem fx:id="probItem" mnemonicParsing="false" text="Probability" />
         </items>
       </MenuButton>
-      <TextField fx:id="resultField" layoutX="14.0" layoutY="50.0" prefHeight="26.0" prefWidth="247.0" />
-      <TextField fx:id="inputField" layoutX="14.0" layoutY="82.0" prefHeight="26.0" prefWidth="247.0" />
+      <TextField fx:id="resultField" layoutX="14.0" layoutY="50.0" prefHeight="26.0" prefWidth="267.0" />
+      <TextField fx:id="inputField" layoutX="14.0" layoutY="82.0" prefHeight="26.0" prefWidth="267.0" />
       <MenuButton fx:id="fromSelector" layoutX="14.0" layoutY="116.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="121.0" text="Decimal">
         <items>
           <MenuItem fx:id="fromDecimalItem" mnemonicParsing="false" text="Decimal" />
@@ -33,18 +31,19 @@
           <MenuItem fx:id="bigItem" mnemonicParsing="false" text="Big-endian" />
         </items>
       </MenuButton>
-      <MenuButton fx:id="toSelector" layoutX="139.0" layoutY="116.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="121.0" text="Binary">
+      <MenuButton fx:id="toSelector" layoutX="160.0" layoutY="116.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="121.0" text="Binary">
         <items>
           <MenuItem fx:id="toBinaryItem" mnemonicParsing="false" text="Binary" />
           <MenuItem fx:id="toDecimalItem" mnemonicParsing="false" text="Decimal" />
             <MenuItem fx:id="toHexItem" mnemonicParsing="false" text="Hex" />
         </items>
       </MenuButton>
-      <MenuButton fx:id="endianSelector2" layoutX="139.0" layoutY="150.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="121.0" text="Little-endian">
+      <MenuButton fx:id="endianSelector2" layoutX="160.0" layoutY="150.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="121.0" text="Little-endian">
          <items>
             <MenuItem fx:id="littleItem2" mnemonicParsing="false" text="Little-endian" />
             <MenuItem fx:id="bigItem2" mnemonicParsing="false" text="Big-endian" />
          </items>
       </MenuButton>
+      <Button fx:id="buttonHelp" layoutX="233.0" layoutY="14.0" mnemonicParsing="false" text="Help" />
    </children>
 </AnchorPane>
