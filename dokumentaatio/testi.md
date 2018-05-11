@@ -1,5 +1,5 @@
 # Testausdokumentti
-Ohjelman "backendiä" on testattu automatisoiduilla JUnit-testeillä.
+Ohjelman "backendiä" on testattu automatisoiduilla JUnit-testeillä. Niitä voi tutkailla [täältä](https://github.com/kotommi/otm-harjoitustyo/tree/master/jcalculator/src/test/java/test).
 
 ## Testikattavuus
 ![kuva](https://github.com/kotommi/otm-harjoitustyo/blob/master/dokumentaatio/testit.png)
