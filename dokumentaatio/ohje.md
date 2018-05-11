@@ -1,6 +1,9 @@
 # Käyttöohje
 Lataa tiedosto [jcalculator.jar](https://github.com/kotommi/otm-harjoitustyo/releases/download/final/jcalculator-1.0.jar) ja valinnaisesti [konfiguraatio-tiedosto](https://github.com/kotommi/otm-harjoitustyo/releases/download/final/config.properties).
 
+## Konfigurointi
+Käytettävän tietokannan nimeä voi vaihtaa muokkaamalla config.properties tiedoston riviä `dbFile=scrollback.db`
+
 ## Käynnistäminen
 Käynnistä ohjelma komennolla `java -jar jcalculator-1.0.jar` tai tuplaklikkaamalla ohjelman kuvaketta.
 
