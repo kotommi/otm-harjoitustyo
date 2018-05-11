@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package jcalculator.database;
 
 import java.sql.Connection;
@@ -65,7 +60,7 @@ public class ScrollbackDao {
     }
 
     /**
-     * Clears the scrollback and saves last x lines in the database.
+     * Clears the scrollback and saves last 10 lines in the database.
      *
      * @param lines List of lines from resultArea
      */
