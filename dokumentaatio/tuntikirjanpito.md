@@ -15,4 +15,6 @@
 | 30.4  | 2    | Refaktorointia, Viime viikon palautuksen toiminnallisuuden korjausta
 | 1.5   | 2    | Sekvenssi- ja pakkauskaavio  |
 | 1.5   | 2    | Testejä, dokumentaatiota ja refaktorointia
-| yht   | 48   |
+| 10.5  | 4    | UI:n viilausta, toiminnallisuuden parantamista.
+| 11.5  | 8    | Testejä, dokumentaatiota, koodin siivousta.
+| yht   | 60   |
