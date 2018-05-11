@@ -9,9 +9,10 @@ Lisäksi joku yläpalkki josta voi vaihtaa näkymiä
 
 ## Perusversion tarjoama toiminnallisuus
 * Käyttäjä voi kirjoittaa lausekkeita jotka ohjelma evaluoi
-* Tuettuna operaattorit + - / * % √ xⁿ () {} []
+* Tuettuna operaattorit + - / * % √ xⁿ () {} [].
 * Ohjelma tallentaa edellisten laskujen tuloksia historiaan (scrollback) ja 
 näyttää ne kun ohjelma käynnistetään uudestaan.
+* Lukujen kantojen muuttaminen binääriin ja heksadesimaaliin.
 
 ## Toimintaympäristön rajoitteet
 * Ohjelman tulee toimia Linux-pohjaisissa käyttöjärjestelmissä
@@ -20,4 +21,3 @@ näyttää ne kun ohjelma käynnistetään uudestaan.
 * Todennäköisyyslaskenta, jakaumien visualisointi
 * Muuttujien lisääminen peruslaskimeen
 * Funktiot ja niiden kuvaajat
-* Ohjelmoijalle hyödyllisiä lukujen kantamuunnoksia, logaritmeja
