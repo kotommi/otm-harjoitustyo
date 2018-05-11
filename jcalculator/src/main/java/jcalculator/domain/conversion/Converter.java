@@ -137,13 +137,7 @@ public class Converter {
      * @return
      */
     private String parseHex(String input) {
-        if (endian == Endian.BIG) {
-            StringBuilder sb = new StringBuilder(input);
-            while (sb.length() < 7) {
-                sb.append("0");
-            }
-            input = sb.toString();
-        }
+        input = appendHex(input);
         int parse;
         try {
             parse = Integer.decode(input);
@@ -158,6 +152,24 @@ public class Converter {
             return "Negative";
         }
         return convertInt(parse);
+    }
+
+    /**
+     * fixes user input hex-Strings.
+     *
+     * @param input a Hex-String
+     * @return a HexString with zeros in the end.
+     */
+    private String appendHex(String input) {
+        if (endian == Endian.BIG) {
+            StringBuilder sb = new StringBuilder(input);
+            while (sb.length() < 7) {
+                sb.append("0");
+            }
+            input = sb.toString();
+            return input;
+        }
+        return input;
     }
 
     /**

@@ -109,6 +109,15 @@ public class ConverterTest {
         String input = "-1";
         String result = converter.convert(input);
         assertEquals("Negative", result);
+        converter.setEndian(Endian.BIG);
+        converter.setFrom(Encoding.BINARY);
+        input = "-1";
+        converter.convert(input);
+        assertEquals("Negative", result);
+        converter.setFrom(Encoding.HEX);
+        input = "-FF";
+        result = converter.convert(input);
+        assertEquals("Negative", result);
     }
     
     @Test
