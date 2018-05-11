@@ -1,11 +1,18 @@
 # Laskinprojekti
 
+## Release
+[jcalculator.jar](https://github.com/kotommi/otm-harjoitustyo/releases/tag/final)
+
 ## Dokumentaatio
+[Käyttöohje](https://github.com/kotommi/otm-harjoitustyo/blob/master/dokumentaatio/ohje.md)
+
 [Tuntikirjanpito](https://github.com/kotommi/otm-harjoitustyo/blob/master/dokumentaatio/tuntikirjanpito.md)
 
 [Vaatimusmäärittely](https://github.com/kotommi/otm-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)
 
 [Arkkitehtuuri](https://github.com/kotommi/otm-harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md)
+
+[Testaus]()
 
 ## Komentorivitoiminnot
 
