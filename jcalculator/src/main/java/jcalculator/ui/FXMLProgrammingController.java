@@ -214,8 +214,11 @@ public class FXMLProgrammingController implements Initializable {
     private void showHelp() {
         Dialog dia = new Dialog();
         dia.setTitle("Help");
-        dia.setContentText("help");
+        dia.setContentText("Input numbers you want to convert in the lower textbox.\n"
+                + "Try pressing enter to re-evaluate if you're getting NaN.\n"
+                + "Negative numbers are disabled due to java hijinks.");
         dia.show();
+        dia.setHeight(150d);
         Window window = dia.getDialogPane().getScene().getWindow();
         window.setOnCloseRequest(event -> window.hide());
     }
