@@ -2,7 +2,7 @@
 Ohjelman "backendiä" on testattu automatisoiduilla JUnit-testeillä.
 
 ## Testikattavuus
-![kuva](testit)
+![kuva](https://github.com/kotommi/otm-harjoitustyo/blob/master/dokumentaatio/testit.png)
 
 ## Järjestelmätestit
 Lisäksi ohjelman UI:ta on testattu käyttäjälähtöisesti.

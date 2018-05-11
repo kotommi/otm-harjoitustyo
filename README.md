@@ -12,7 +12,7 @@
 
 [Arkkitehtuuri](https://github.com/kotommi/otm-harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md)
 
-[Testaus]()
+[Testaus](https://github.com/kotommi/otm-harjoitustyo/blob/master/dokumentaatio/testi.md)
 
 ## Komentorivitoiminnot
 
